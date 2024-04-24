@@ -1,0 +1,73 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String    @id
+  name         String
+  createdAt    DateTime  @default(now()) @db.Timestamptz(3)
+  updatedAt    DateTime  @default(now()) @updatedAt @db.Timestamptz(3)
+  tgUserId     BigInt    @unique
+  memberStatus String
+  registeredAt DateTime? @db.Timestamptz(3)
+  coins        Int       @default(0)
+
+  OfferTransaction OfferTransaction[]
+
+  @@map("users")
+}
+
+model Offer {
+  id    Int    @id @default(autoincrement())
+  coins Int
+  tons  String
+
+  OfferTransaction OfferTransaction[]
+
+  @@map("offers")
+}
+
+model OfferTransaction {
+  id        String   @id
+  userId    String
+  offerId   Int
+  coins     Int
+  comment   String
+  tons      String
+  nanotons  String
+  toWallet  String
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime @default(now()) @updatedAt @db.Timestamptz(3)
+
+  User           User             @relation(fields: [userId], references: [id])
+  Offer          Offer            @relation(fields: [offerId], references: [id])
+  TonTransaction TonTransaction[]
+
+  @@map("offers_transactions")
+}
+
+model TonTransaction {
+  txIdHash           String    @id
+  txIdLt             String
+  rcvdAt             DateTime  @default(now()) @db.Timestamptz(3)
+  utime              DateTime? @db.Timestamptz(0)
+  inMsgValue         String?
+  inMsgSource        String?
+  inMsgDestination   String?
+  inMsgMessage       String?
+  raw                Json
+  isProcessed        Boolean   @default(false)
+  offerTransactionId String?
+
+  OfferTransaction OfferTransaction? @relation(fields: [offerTransactionId], references: [id])
+
+  @@map("ton_transactions")
+}

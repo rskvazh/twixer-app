@@ -1,0 +1,36 @@
+{
+  "name": "@twixer/webapp",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "dotenv -- vite dev --host",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "lint": "prettier --check . && eslint .",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-auto": "^3.0.0",
+    "@sveltejs/kit": "^2.0.0",
+    "@sveltejs/vite-plugin-svelte": "^3.0.0",
+    "@ton/core": "^0.56.3",
+    "@ton/ton": "^13.11.1",
+    "@tonconnect/ui": "^2.0.0",
+    "@twixer/eslint-config": "*",
+    "autoprefixer": "^10.4.17",
+    "colord": "^2.9.3",
+    "postcss": "^8.4.33",
+    "socket.io-client": "^4.7.4",
+    "svelte": "^4.2.7",
+    "svelte-check": "^3.6.0",
+    "tailwind-variants": "^0.2.1",
+    "tailwindcss": "^3.4.1",
+    "telegram-webapps": "^7.0.0",
+    "tslib": "^2.4.1",
+    "vite": "^5.0.3",
+    "vite-plugin-node-polyfills": "^0.21.0"
+  }
+}

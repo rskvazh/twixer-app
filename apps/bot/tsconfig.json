@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "@tsconfig/node20/tsconfig.json",
+
+  // "include": ["./src/**/*.js", "./src/**/*.ts", "./tests/**/*.js", "./tests/**/*.ts"],
+
+  "compilerOptions": {
+    // "resolveJsonModule": true,
+    // "isolatedModules": true,
+    "moduleDetection": "force",
+    "moduleResolution": "Bundler",
+    "module": "ESNext",
+
+    "noEmit": true,
+    "noUncheckedIndexedAccess": true,
+    "lib": ["ES2023", "DOM", "DOM.Iterable"]
+  },
+  "exclude": ["node_modules/**"]
+}

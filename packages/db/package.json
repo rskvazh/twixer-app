@@ -1,0 +1,20 @@
+{
+  "name": "@twixer/db",
+  "version": "0.0.1",
+  "type": "module",
+  "module": "index.ts",
+  "main": "index.ts",
+  "scripts": {
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@twixer/eslint-config": "*",
+    "prisma": "^5.8.1"
+  },
+  "dependencies": {
+    "@paralleldrive/cuid2": "^2.2.2",
+    "@prisma/client": "^5.8.1"
+  }
+}

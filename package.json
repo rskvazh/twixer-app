@@ -1,0 +1,39 @@
+{
+  "name": "twixer",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "format": "prettier --write ."
+  },
+  "prisma": {
+    "schema": "./packages/db/prisma/schema.prisma"
+  },
+  "devDependencies": {
+    "@twixer/eslint-config": "*",
+    "@types/eslint": "8.56.0",
+    "@types/node": "^20.11.5",
+    "concurrently": "^8.2.2",
+    "dotenv-cli": "^7.3.0",
+    "esbuild": "^0.19.11",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-svelte": "^2.35.1",
+    "prettier": "^3.1.1",
+    "prettier-plugin-svelte": "^3.1.2",
+    "prettier-plugin-tailwindcss": "^0.5.11",
+    "tsx": "^4.1.2",
+    "turbo": "latest",
+    "typescript": "^5.3.3"
+  },
+  "packageManager": "npm@10.2.4",
+  "engines": {
+    "node": "20",
+    "npm": "10"
+  }
+}

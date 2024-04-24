@@ -1,0 +1,19 @@
+{
+  "name": "@twixer/bot",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "dotenv tsx watch --clear-screen=false ./src/index.ts",
+    "start": "node ./dist/index.js",
+    "lint": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@tsconfig/node20": "^20.1.2",
+    "@twixer/db": "*",
+    "@twixer/eslint-config": "*"
+  },
+  "dependencies": {
+    "@telestats/telegraf": "^0.3.0",
+    "telegraf": "^4.15.3"
+  }
+}
